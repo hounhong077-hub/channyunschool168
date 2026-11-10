@@ -2,43 +2,162 @@
 <html lang="km">
 <head>
     <meta charset="UTF-8">
+    <!-- Lock zooming and handle iPhone Notch -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    
+    <!-- PWA Settings for iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="CYIS">
-    <meta name="theme-color" content="#2c7da0">
-    <title>Daily Attendance System | CYIS</title>
+    <meta name="theme-color" content="#f8f9fa">
+    
+    <title>CYIS Attendance</title>
 
-    <!-- App Icons (Powered by your CYIS Logo) -->
-    <link rel="apple-touch-icon" sizes="180x180" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjR9cK7_BjbUQ4THtiR6iLjRdc3TN7o8kTPD7k91b70ixGvhTAdEYFVOnoN1TlSB2LZEX_PNoBOKDOyYtg94vVlATxh7jpWk6ngIY45Ym4S7RzwvnrEyWDDeGX5DkDqfIDCqmXcOEqjZ0x-9xaWyLZ3XOGWeb-I7mc7s93BDsynlqGNuEBRVY0zfg6akWg/s180/CYIS%20Png.png"[cite: 1]>
-    <link rel="icon" type="image/png" sizes="192x192" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjR9cK7_BjbUQ4THtiR6iLjRdc3TN7o8kTPD7k91b70ixGvhTAdEYFVOnoN1TlSB2LZEX_PNoBOKDOyYtg94vVlATxh7jpWk6ngIY45Ym4S7RzwvnrEyWDDeGX5DkDqfIDCqmXcOEqjZ0x-9xaWyLZ3XOGWeb-I7mc7s93BDsynlqGNuEBRVY0zfg6akWg/s192/CYIS%20Png.png"[cite: 1]>
-    <link rel="icon" type="image/png" sizes="512x512" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjR9cK7_BjbUQ4THtiR6iLjRdc3TN7o8kTPD7k91b70ixGvhTAdEYFVOnoN1TlSB2LZEX_PNoBOKDOyYtg94vVlATxh7jpWk6ngIY45Ym4S7RzwvnrEyWDDeGX5DkDqfIDCqmXcOEqjZ0x-9xaWyLZ3XOGWeb-I7mc7s93BDsynlqGNuEBRVY0zfg6akWg/s512/CYIS%20Png.png"[cite: 1]>
-
-    <!-- Web App Manifest for Android & Desktop Chrome/Edge -->
-    <link rel="manifest" href='data:application/manifest+json,{"name":"CYIS Attendance","short_name":"CYIS","description":"Daily Attendance System","start_url":".","scope":".","display":"standalone","orientation":"portrait","background_color":"#2c7da0","theme_color":"#2c7da0","lang":"km","icons":[{"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjR9cK7_BjbUQ4THtiR6iLjRdc3TN7o8kTPD7k91b70ixGvhTAdEYFVOnoN1TlSB2LZEX_PNoBOKDOyYtg94vVlATxh7jpWk6ngIY45Ym4S7RzwvnrEyWDDeGX5DkDqfIDCqmXcOEqjZ0x-9xaWyLZ3XOGWeb-I7mc7s93BDsynlqGNuEBRVY0zfg6akWg/s192/CYIS%20Png.png","sizes":"192x192","type":"image/png","purpose":"any"},{"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjR9cK7_BjbUQ4THtiR6iLjRdc3TN7o8kTPD7k91b70ixGvhTAdEYFVOnoN1TlSB2LZEX_PNoBOKDOyYtg94vVlATxh7jpWk6ngIY45Ym4S7RzwvnrEyWDDeGX5DkDqfIDCqmXcOEqjZ0x-9xaWyLZ3XOGWeb-I7mc7s93BDsynlqGNuEBRVY0zfg6akWg/s512/CYIS%20Png.png","sizes":"512x512","type":"image/png","purpose":"any"}]}'>
+    <!-- App Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjR9cK7_BjbUQ4THtiR6iLjRdc3TN7o8kTPD7k91b70ixGvhTAdEYFVOnoN1TlSB2LZEX_PNoBOKDOyYtg94vVlATxh7jpWk6ngIY45Ym4S7RzwvnrEyWDDeGX5DkDqfIDCqmXcOEqjZ0x-9xaWyLZ3XOGWeb-I7mc7s93BDsynlqGNuEBRVY0zfg6akWg/s180/CYIS%20Png.png">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts for Khmer Text -->
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;500;700&display=swap" rel="stylesheet">
 
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Kantumruy Pro', sans-serif; 
+            -webkit-tap-highlight-color: transparent; 
+        }
+        
         html, body {
             width: 100%;
-            height: 100%;
-            overflow: hidden;
+            height: 100vh;
+            height: 100dvh; 
+            overflow: hidden; 
             background: #ffffff;
+            display: flex;
+            flex-direction: column;
         }
+
+        .app-container {
+            flex: 1;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
         iframe {
             width: 100%;
             height: 100%;
             border: none;
             display: block;
         }
+
+        /* --- BOTTOM NAVIGATION BAR (For Phones) --- */
+        .bottom-nav {
+            height: 65px;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5px;
+            border-top: 1px solid #e0e0e0;
+            padding-bottom: env(safe-area-inset-bottom); /* iPhone home indicator */
+            z-index: 1000;
+            flex-shrink: 0; 
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #000;
+            font-size: 10px;
+            flex: 1;
+            height: 100%;
+            gap: 4px;
+            padding: 5px;
+            transition: 0.2s;
+        }
+
+        .nav-item i {
+            font-size: 20px;
+        }
+
+        .nav-item.active {
+            background-color: #0c0c0c;
+            color: #ffffff;
+            border-radius: 12px;
+            margin: 8px 3px;
+            height: 50px;
+        }
+
+        /* --- DESKTOP / COMPUTER SETTINGS --- */
+        /* If screen is wider than 768px (tablets/desktops), hide the bottom nav */
+        @media (min-width: 768px) {
+            .bottom-nav {
+                display: none !important; /* Hides the phone toolbar completely */
+            }
+            .app-container {
+                height: 100vh; /* Takes full height */
+            }
+        }
     </style>
 </head>
 <body>
-    <iframe id="appFrame" 
-            src="https://script.google.com/macros/s/AKfycbxbeDq3B1iIh8N-U09eyhaAFextpEEIsV8ed5JworwP2LO7kuabgM8JlW73Q3Mut3mh/exec" 
-            allow="camera; microphone; display-capture; clipboard-read; clipboard-write; geolocation" 
-            allowfullscreen>
-    </iframe>
+    
+    <!-- 1. The Google Apps Script loads here -->
+    <div class="app-container">
+        <iframe id="appFrame" 
+                src="https://script.google.com/macros/s/AKfycbzkAPDbaIk3-ccF0QVXqmO4EuQ16KDzRE5rFfGqoy69osssitJkwCms-ZHXV37Yzmci/exec" 
+                allow="camera; microphone; display-capture; clipboard-read; clipboard-write; geolocation" 
+                allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- 2. YOUR CUSTOM BOTTOM TOOLBAR (Only shows on phones) -->
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item active" onclick="setActive(this)">
+            <i class="fas fa-home"></i>
+            <span>ដើម</span>
+        </a>
+        <a href="#" class="nav-item" onclick="setActive(this)">
+            <i class="fas fa-check-square"></i>
+            <span>មករៀន</span>
+        </a>
+        <a href="#" class="nav-item" onclick="setActive(this)">
+            <i class="fas fa-file-alt"></i>
+            <span>គ្រប់គ្រង</span>
+        </a>
+        <a href="#" class="nav-item" onclick="setActive(this)">
+            <i class="fas fa-expand"></i>
+            <span>ម៉ឺនុយផ្សេងៗ</span>
+        </a>
+        <a href="#" class="nav-item" onclick="setActive(this)">
+            <i class="fas fa-school"></i>
+            <span>សាលា</span>
+        </a>
+        <a href="#" class="nav-item" onclick="setActive(this)">
+            <i class="fas fa-building"></i>
+            <span>ថ្នាក់រៀន</span>
+        </a>
+        <a href="#" class="nav-item" onclick="setActive(this)">
+            <i class="fas fa-user"></i>
+            <span>គណនី</span>
+        </a>
+    </nav>
+
+    <script>
+        function setActive(element) {
+            const items = document.querySelectorAll('.nav-item');
+            items.forEach(item => item.classList.remove('active'));
+            element.classList.add('active');
+        }
+    </script>
 </body>
 </html>
